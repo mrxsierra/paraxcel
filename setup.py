@@ -5,7 +5,7 @@ setup(
     version="0.1",
     packages=find_packages(),
     install_requires=[
-        "docx",  # Add other dependencies your project may have
+        "python_docx",  # Add other dependencies your project may have
         "pandas",
         "openpyxl",
         "pydantic",
@@ -15,7 +15,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "paraxcel=src.ui.interface:main",  # Update with the actual main function
+            "paraxcel=app:main",
         ],
     },
     package_data={
@@ -26,5 +26,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.12.1',
 )
