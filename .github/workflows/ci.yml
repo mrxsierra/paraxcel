@@ -39,9 +39,25 @@ jobs:
         pip install bandit
         bandit -r src
 
-    - name: Build executable
+  build-executable:
+    runs-on: windows-latest
+    needs: test  # Ensure this runs only after the tests are successful
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python on Windows
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12.1'
+
+    - name: Install dependencies
       run: |
-        pip install pyinstaller
+        python -m pip install pyinstaller
+
+    - name: Build Windows executable
+      run: |
         pyinstaller --onefile app.py
 
     - name: Upload executable
@@ -52,7 +68,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build-executable  # This job depends on the build-executable job
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
