@@ -5,7 +5,7 @@ setup(
     version="0.1",
     packages=find_packages(),
     install_requires=[
-        "python_docx",  # Add other dependencies your project may have
+        "python-docx",  # Add other dependencies your project may have
         "pandas",
         "openpyxl",
         "pydantic",
