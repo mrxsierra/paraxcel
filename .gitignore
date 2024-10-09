@@ -39,3 +39,5 @@ output/
 htmlcov/
 
 *.ipynb
+tests/data
+tests/output

@@ -1,3 +1,20 @@
+[tool.poetry]
+name = "paraxcel"
+version = "0.1.0"
+description = "A DOCX to Excel converter for question papers."
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"  # Ensure this file exists and contains project details
+
+[tool.poetry.dependencies]
+python = "^3.8"  # Specify Python version compatibility (adjust as necessary)
+docx = "0.2.4"
+pandas = "1.3.0"
+openpyxl = "3.0.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "6.2.0"  # Move pytest to dev-dependencies
+
 [build-system]
-requires = ["setuptools", "wheel", "pyinstaller"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
