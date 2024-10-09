@@ -14,25 +14,21 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Updated to the latest version
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4  # Updated to the latest version
       with:
         python-version: '3.12.1'  # Adjust to your Python version
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
-
     - name: Install dependencies
       run: |
-        poetry install
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
     - name: Run tests
       run: |
-        poetry run pytest tests --cov=src
+        pytest tests --cov=src
 
     - name: Security check
       run: |
