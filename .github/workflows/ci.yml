@@ -28,7 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install python-docx pydantic pandas pytest openpyxml pytest-cov
+        pip install python-docx pydantic pandas pytest openpyxl pytest-cov
 
     - name: Run tests
       run: |
