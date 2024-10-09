@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Tkinter files
+*.tcl
+*.tk
+
+# VS Code
+.vscode/
+
+# Environment
+env/
+venv/
+*.env
+
+# PyInstaller
+*.spec
+output/
+
+# Miscellaneous
+*.log
+*.DS_Store
+*.pdb
+*.pot
+
+# Coverage reports
+.coverage
+htmlcov/
+
+*.ipynb
