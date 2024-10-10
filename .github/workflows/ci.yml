@@ -64,7 +64,8 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed --icon=src/assets/icon.ico --name=paraxcel src/app.py
+        pyinstaller --onefile --windowed --icon=src/assets/icon.ico --name=paraxcel src/app.py --hidden-import=docx
+
 
     - name: List contents of dist directory
       run: dir dist
