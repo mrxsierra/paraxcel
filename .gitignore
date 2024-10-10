@@ -23,6 +23,10 @@ dist/
 env/
 venv/
 *.env
+*.venv
+*.conda
+conda/
+environment.yml
 
 # PyInstaller
 *.spec

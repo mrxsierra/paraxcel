@@ -44,7 +44,7 @@ def parse_para(doc: Document, breaker: int = 5) -> list[Question]:
             if count == breaker:
                 # Store the question in the list (correct_answer may be None)
                 try:
-                    print(answer)
+                    # print(answer)
                     questions.append(Question(
                         question_text=question[0],
                         options=question[1:],

@@ -1,14 +1,16 @@
 # src/app.py
+import os
 import tkinter as tk
-from tkinter import PhotoImage
+
 from ui.interface import DocxToExcelApp
 
 def main():
     root = tk.Tk()
     app = DocxToExcelApp(root)
     
-    # Alternatively, for .png files, you can use iconphoto()
-    root.iconbitmap('src/assets/icon.ico')
+    # Update to use the correct path and icon format (.ico)
+    icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'icon.ico')
+    root.wm_iconbitmap(icon_path)
     
     root.mainloop()
 
