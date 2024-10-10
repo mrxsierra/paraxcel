@@ -70,12 +70,12 @@ jobs:
 
     - name: Check for app.exe
       run: |
-        if exist dist\app.exe (
-            echo "app.exe exists"
-        ) else (
-            echo "app.exe does not exist"
+        if (Test-Path "dist/app.exe") {
+            Write-Host "app.exe exists"
+        } else {
+            Write-Host "app.exe does not exist"
             exit 1
-        )
+        }
 
     - name: Upload executable
       uses: actions/upload-artifact@v4
