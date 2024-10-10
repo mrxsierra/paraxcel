@@ -107,12 +107,17 @@ jobs:
         echo "RELEASE_ID=${{ steps.create_release.outputs.id }}" >> $GITHUB_ENV
         echo "UPLOAD_URL=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_ENV
 
+    - name: Download executable artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: app-executable
+
     - name: Upload .exe to Release
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: ${{ github.workspace }}/dist/app.exe # Use the full path
+        asset_path: ${{ github.workspace }}\app.exe
         asset_name: app.exe
         asset_content_type: application/octet-stream
