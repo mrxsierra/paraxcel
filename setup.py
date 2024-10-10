@@ -9,7 +9,7 @@ setup(
     
     # Include assets (icon.png in this case)
     package_data={
-        "": ["assets/*.png"],
+        "": ["assets/*.ico"],
     },
     
     install_requires=[

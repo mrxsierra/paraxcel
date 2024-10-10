@@ -8,8 +8,7 @@ def main():
     app = DocxToExcelApp(root)
     
     # Alternatively, for .png files, you can use iconphoto()
-    icon = PhotoImage(file='src/assets/icon.png')
-    root.iconphoto(True, icon)
+    root.iconbitmap('src/assets/icon.ico')
     
     root.mainloop()
 

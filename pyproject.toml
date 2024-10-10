@@ -23,7 +23,7 @@ exclude = ["tests*"]
 
 # Include assets (like icon.png)
 [tool.setuptools.package-data]
-"paraxcel" = ["assets/*.png"]
+"paraxcel" = ["assets/*.ico"]
 
 [project.scripts]
 paraxcel = "src.app:main"
