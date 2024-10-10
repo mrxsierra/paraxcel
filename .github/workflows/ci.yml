@@ -63,25 +63,25 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile app.py
+        pyinstaller --onefile --windowed --icon=src/assets/icon.png --name=paraxcel src/app.py
 
     - name: List contents of dist directory
       run: dir dist
 
-    - name: Check for app.exe
+    - name: Check for paraxcel.exe
       run: |
-        if (Test-Path "dist/app.exe") {
-            Write-Host "app.exe exists"
+        if (Test-Path "dist/paraxcel.exe") {
+            Write-Host "paraxcel.exe exists"
         } else {
-            Write-Host "app.exe does not exist"
+            Write-Host "paraxcel.exe does not exist"
             exit 1
         }
 
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: app-executable
-        path: dist/app.exe
+        name: paraxcel-executable
+        path: dist/paraxcel.exe
 
   release:
     runs-on: ubuntu-latest
@@ -107,17 +107,10 @@ jobs:
         echo "RELEASE_ID=${{ steps.create_release.outputs.id }}" >> $GITHUB_ENV
         echo "UPLOAD_URL=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_ENV
 
-    - name: List available artifacts
-      run: |
-        echo "Listing artifacts available for download"
-        gh run list --limit 5
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Download executable artifact
       uses: actions/download-artifact@v4
       with:
-        name: app-executable
+        name: paraxcel-executable
         path: dist/
 
     - name: Display structure of downloaded files
@@ -129,6 +122,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: dist/app.exe
-        asset_name: app.exe
+        asset_path: dist/paraxcel.exe
+        asset_name: paraxcel.exe
         asset_content_type: application/octet-stream

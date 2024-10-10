@@ -2,29 +2,30 @@ from setuptools import setup, find_packages
 
 setup(
     name="paraxcel",
-    version="0.1",
-    packages=find_packages(),
+    version="0.0.1",
+    python_requires='>=3.12',
+    packages=find_packages(where="src", exclude=["tests*"]),
+    package_dir={"": "src"},
+    
+    # Include assets (icon.png in this case)
+    package_data={
+        "": ["assets/*.png"],
+    },
+    
     install_requires=[
-        "python-docx",  # Add other dependencies your project may have
         "pandas",
-        "openpyxl",
+        "python-docx",
         "pydantic",
-        "pytest",
-        "pytest-cov",
-        # Add any other dependencies you need
+        "openpyxl",
     ],
     entry_points={
         "console_scripts": [
-            "paraxcel=app:main",
+            "paraxcel=src.app:main",
         ],
-    },
-    package_data={
-        '': ['*.txt', '*.md', '*.docx'],
     },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.12.1',
 )

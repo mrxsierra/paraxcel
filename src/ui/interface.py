@@ -3,8 +3,8 @@
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from src.paraxcel.docx_parser import read_docx, parse_para
-from src.paraxcel.excel_writer import para_to_excel
+from paraxcel.docx_parser import read_docx, parse_para
+from paraxcel.excel_writer import para_to_excel
 
 class DocxToExcelApp:
     def __init__(self, root: tk.Tk):
